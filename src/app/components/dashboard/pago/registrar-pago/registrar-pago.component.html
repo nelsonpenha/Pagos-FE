@@ -1,0 +1,56 @@
+<div class="container">
+  <mat-toolbar>
+    <span>Registrar pago</span>
+  </mat-toolbar>
+  <mat-card style="margin-top: 10px">
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" >
+
+      <mat-grid-list cols="col" rowHeight="85px">
+
+        <mat-grid-tile [colspan]="col" [rowspan]="row" >
+          <mat-form-field class="ancho">
+            <mat-label>Número de referencia</mat-label>
+            <input matInput required autocomplete="off" formControlName="numeroReferenciaComprobante">
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <!--Servicio-->
+        <mat-grid-tile [colspan]="col" [rowspan]="row" >
+          <mat-form-field class="ancho">
+            <mat-label>Servicio</mat-label>
+            <mat-select required formControlName="servicio">
+              <mat-option *ngFor="let servicio of servicios" [value]="servicio">
+                {{servicio.nombre}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="col" [rowspan]="row" >
+          <mat-form-field class="ancho">
+            <mat-label>Id Usuario</mat-label>
+            <input type="number" matInput required autocomplete="off" formControlName="usuario">
+          </mat-form-field>
+        </mat-grid-tile>
+
+
+        <mat-grid-tile [colspan]="col" [rowspan]="row" >
+          <mat-form-field class="ancho">
+            <mat-label>Monto</mat-label>
+            <input type="number" matInput required autocomplete="off" formControlName="montoAbonado">
+          </mat-form-field>
+        </mat-grid-tile>
+
+
+        <mat-grid-tile [colspan]="col" [rowspan]="row" >
+          <div class="example-spacer"></div>
+          <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary">Aceptar</button>
+          <div class="example-spacer"></div>
+        </mat-grid-tile>
+
+      </mat-grid-list>
+
+    </form>
+  </mat-card>
+</div>

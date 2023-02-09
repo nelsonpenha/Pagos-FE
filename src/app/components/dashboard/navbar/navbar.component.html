@@ -1,0 +1,49 @@
+<mat-toolbar class="mat-elevation-z8" color="primary">
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()" >
+    <mat-icon *ngIf="!sidenav.opened">
+      menu
+    </mat-icon>
+    <mat-icon *ngIf="sidenav.opened">
+      close
+    </mat-icon>
+  </button>
+  Pagos Ya!
+  <span class="example-spacer"></span>
+  <button mat-icon-button aria-label="icon-button with logout icon" (click)="onLogOut()">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+    <button mat-button routerLink="/dashboard/" class="menu-button">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
+    <mat-divider></mat-divider>
+
+    <button mat-button routerLink="/dashboard/pago/listar-pago-usuario/" class="menu-button">
+      <span>Lista pago por usuario</span>
+    </button>
+    <mat-divider></mat-divider>
+
+    <button mat-button routerLink="/dashboard/pago/listar-pago-servicio/" class="menu-button">
+      <span>Lista pago por servicio</span>
+    </button>
+    <mat-divider></mat-divider>
+
+    <button mat-button routerLink="/dashboard/pago/registrar-pago/" class="menu-button">
+      <span>Realizar pago</span>
+    </button>
+    <mat-divider></mat-divider>
+
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <!--Main content here!-->
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
